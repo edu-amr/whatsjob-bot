@@ -28,11 +28,11 @@ async function sendBroadcastMessage() {
   vagasData.forEach((vaga) => {
     message += 
       `\r\n\r\n` +
-      `- 🏢 Empresa: ${vaga.empresa}\r\n` +
-      `- 🎓 Senioridade: ${vaga.senioridade}\r\n` +
-      `- 💼 Vaga: ${vaga.titulo}\r\n` +
-      `- 🚩 Modalidade: ${vaga.modalidade}\r\n` +
-      `- ❓ Link: ${vaga.link}`;
+      `🏢 Empresa: ${vaga.empresa}\r\n` +
+      `🎓 Senioridade: ${vaga.senioridade}\r\n` +
+      `💼 Vaga: ${vaga.titulo}\r\n` +
+      `🚩 Modalidade: ${vaga.modalidade}\r\n` +
+      `🔗 Link: ${vaga.link}`;
   });
 
   for (const entry of numbersData) {
