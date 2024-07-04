@@ -48,7 +48,7 @@ async function sendBroadcastMessage() {
 
 export function initSendJobsEvery15Days() {
   const job = new CronJob(
-    '*/30 * * * * *',
+    '0 0 0 */15 * *',
     () => sendBroadcastMessage(),
     null,
     true,
