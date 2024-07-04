@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "tsx watch --env-file .env  src/server.ts",
     "build": "tsc",
-    "start": "node dist/src/server.js --env-file .env",
+    "start": "node dist/src/server.js",
     "lint": "eslint src/**/*.{ts,tsx}"
   },
   "keywords": [],
