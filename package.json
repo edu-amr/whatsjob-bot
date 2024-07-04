@@ -1,17 +1,17 @@
 {
-  "name": "baileys",
+  "name": "whatsjob-bot",
   "version": "1.0.0",
+  "description": "",
   "main": "./dist/server.js",
   "scripts": {
-    "dev": "tsx watch --env-file .env  src/server.ts",
+    "dev": "tsx watch --env-file .env src/server.ts",
     "build": "tsc",
-    "start": "node dist/src/server.js",
+    "start": "node dist/server.js",
     "lint": "eslint src/**/*.{ts,tsx}"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "devDependencies": {
     "@types/express": "^4.17.21",
     "@types/node": "^20.14.9",

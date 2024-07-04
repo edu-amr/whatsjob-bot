@@ -1,4 +1,4 @@
-import { supabaseService } from "@/core/services/supabase-service";
+import { supabaseService } from "../../services/supabase-service"
 
 export async function jobsDispatch(contactName: string) {
   const { data, error } = await supabaseService.from("vagas").select("titulo, link, empresa, senioridade, modalidade");

@@ -1,5 +1,4 @@
 import { WAMessage } from "@whiskeysockets/baileys";
-import { MessageEnum } from "../../../types/enums";
 import { socket } from "../services/connect-whatsapp";
 import { delay } from "../utils/delay";
 import { subscribeDispatch } from "./dispatchs/subscribe-dispatch";
@@ -11,6 +10,18 @@ import { donationDispatch } from "./dispatchs/donation-dispatch";
 import { channelsDispatch } from "./dispatchs/channels-dispatch";
 import { projectsDispatch } from "./dispatchs/projects-dispatch";
 import { unsubscribeDispatch } from "./dispatchs/cancel-dispatch";
+
+export enum MessageEnum {
+  SUBSCRIBE = "Olá, gostaria de me cadastrar na lista para receber as vagas!",
+  JOBS = "!vagas",
+  CANCEL = "!cancelar",
+  COURSES = "!cursos",
+  ABOUT = "!sobre", 
+  PROJECTS = "!projetos",
+  FEEDBACK = "!feedback",
+  DONATION = "!doacao",
+  CHANNELS = "!canais"
+}
 
 const dispatchMap: Record<MessageEnum, (phoneNumber: string, contactName: string) => Promise<string>> = {
   [MessageEnum.SUBSCRIBE]: subscribeDispatch,

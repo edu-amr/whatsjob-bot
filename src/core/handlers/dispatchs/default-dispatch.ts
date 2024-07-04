@@ -1,4 +1,4 @@
-import { socket } from "@/core/services/connect-whatsapp";
+import { socket } from "../../../core/services/connect-whatsapp";
 import { delay } from "../../utils/delay";
 
 export async function handleDefaultMessage(contactName: string) {

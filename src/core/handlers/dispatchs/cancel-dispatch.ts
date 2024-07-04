@@ -1,4 +1,4 @@
-import { supabaseService } from "@/core/services/supabase-service";
+import { supabaseService } from "../../services/supabase-service"
 
 export async function unsubscribeDispatch(phoneNumber: string, contactName: string) {
   await supabaseService.from("numeros").delete().eq("numero", phoneNumber);
