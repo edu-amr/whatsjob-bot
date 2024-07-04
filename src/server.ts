@@ -1,7 +1,7 @@
 import express from "express";
 import { connectToWhatsApp } from "./core/services/connect-whatsapp";
 import { whatsappMessageHandler } from "./core/handlers/message-handler";
-import { initSendJobsEvery15Days } from "./core/jobs/send-jobs-every-15-days";
+import { initSendJobsEveryWeek } from "./core/jobs/send-jobs-every-week";
 
 async function bootstrap() {
   const port = process.env.PORT || 3000;
@@ -18,7 +18,7 @@ async function bootstrap() {
       whatsappMessageHandler(sender as string, message)
     });
 
-    initSendJobsEvery15Days()
+    initSendJobsEveryWeek()
     
     server.listen(port, () => console.log(`Server running on port ${port}`));
   } catch (error) {

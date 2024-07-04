@@ -39,16 +39,16 @@ async function sendBroadcastMessage() {
     const number = entry.numero;
     try { 
       await socket?.sendMessage(number + "@s.whatsapp.net", { text: message });
-      delay(4000)
+      delay(4000);
     } catch (sendError) {
       console.error(`Erro ao enviar mensagem para o número ${number}:`, sendError);
     }
   }
 }
 
-export function initSendJobsEvery15Days() {
+export function initSendJobsEveryWeek() {
   const job = new CronJob(
-    '0 0 0 */15 * *',
+    '0 0 9 * * 1', // Executa toda segunda-feira às 9:00 da manhã
     () => sendBroadcastMessage(),
     null,
     true,
