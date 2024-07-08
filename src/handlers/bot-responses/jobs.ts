@@ -1,7 +1,7 @@
 import { supabaseService } from "../../services/supabaseService";
 
 export async function jobsResponse(phoneNumber: string, contactName: string): Promise<string[]> {
-  const { data, error } = await supabaseService.from("vagas").select("titulo, link, empresa, senioridade, modalidade");
+  const { data, error } = await supabaseService.from("duplicate_vagas").select("titulo, link, empresa, senioridade, modalidade");
 
   if (error) {
     return [`Desculpe, *${contactName}*. Tivemos um problema ao buscar as vagas. Por favor, tente novamente mais tarde.`];

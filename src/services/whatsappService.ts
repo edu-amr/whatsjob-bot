@@ -1,6 +1,5 @@
 import makeWASocket, { DisconnectReason, useMultiFileAuthState, WASocket, WAMessage } from '@whiskeysockets/baileys';
 import { Boom } from '@hapi/boom';
-
 let socket: WASocket | null = null;
 
 async function connectToWhatsApp(handleIncomingMessage: (socket: WASocket, message: WAMessage) => Promise<void>) {
@@ -10,7 +9,7 @@ async function connectToWhatsApp(handleIncomingMessage: (socket: WASocket, messa
     printQRInTerminal: true,
     auth: state,
   });
-
+  
   socket.ev.on('connection.update', (update) => {
     const { connection, lastDisconnect } = update;
     if (connection === 'close') {
