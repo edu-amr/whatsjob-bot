@@ -1,5 +1,7 @@
 import { supabaseService } from "../../services/supabaseService";
 
+const table = process.env.ENVIRONMENT == "dev" ? "duplicate_vagas": "vagas" 
+
 export async function jobsResponse(phoneNumber: string, contactName: string): Promise<string[]> {
   const { data, error } = await supabaseService.from("duplicate_vagas").select("titulo, link, empresa, senioridade, modalidade");
 

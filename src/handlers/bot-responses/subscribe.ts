@@ -1,11 +1,13 @@
 import { supabaseService } from "../../services/supabaseService";
 
+const table = process.env.ENVIRONMENT == "dev" ? "duplicate_numeros": "numeros" 
+
 export async function subscribeResponse(
   phoneNumber: string,
   contactName: string
 ): Promise<string[]> {
   const { data, error } = await supabaseService
-    .from("numeros")
+    .from(table)
     .select("numero")
     .eq("numero", phoneNumber);
 

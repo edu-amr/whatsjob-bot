@@ -3,8 +3,10 @@ import { CronJob } from "cron";
 import { supabaseService } from "services/supabaseService";
 import { delay } from "utils/delay";
 
+const table = process.env.ENVIRONMENT == "dev" ? "duplicate_numeros": "numeros" 
+
 async function sendBroadcastMessage(socket: WASocket) {
-  const { data: numbersData, error: numbersError } = await supabaseService.from("duplicate_numeros").select("numero");
+  const { data: numbersData, error: numbersError } = await supabaseService.from(table).select("numero");
 
   if (numbersError) {
     console.error('Erro ao buscar números do banco de dados:', numbersError);
