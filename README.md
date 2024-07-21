@@ -25,8 +25,3 @@ semanalmente no seu WhatsApp.
 - Interface Amigável: Navegação intuitiva e design responsivo para uma melhor experiência do
   usuário.
 - Cadastro de vagas: Você pode nós ajudar enviando vagas para ajudar as outras pessoas.
-
-# Como usar
-
-- Desligar Aplicação: `heroku ps:scale web=0 --app whatsjob-bot`
-- Subir Aplicação: `heroku ps:scale web=1 --app whatsjob-bot`
