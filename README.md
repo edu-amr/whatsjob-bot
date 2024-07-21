@@ -22,6 +22,7 @@ WhatsJob é uma aplicação que ajuda você a encontrar vagas de emprego focadas
 
 - Busca de Vagas: Encontre oportunidades de emprego com base em sua localização e área de interesse.
 - Aplicação Rápida: Candidate-se a vagas diretamente pelo site com apenas alguns cliques.
+<<<<<<< HEAD
 - Integração com WhatsApp: Conecte-se com nosso bot no WhatsApp para receber notificações e atualizações de novas vagas.
 - Interface Amigável: Navegação intuitiva e design responsivo para uma melhor experiência do usuário.
 - Cadastro de Vagas: Ajude outras pessoas enviando vagas que você encontrou.
@@ -65,3 +66,10 @@ Para executar o projeto localmente, siga os passos abaixo:
 ```
   npm start
 ```
+=======
+- Integração com WhatsApp: Conecte-se com nosso bot no WhatsApp para receber notificações e
+  atualizações de novas vagas.
+- Interface Amigável: Navegação intuitiva e design responsivo para uma melhor experiência do
+  usuário.
+- Cadastro de vagas: Você pode nós ajudar enviando vagas para ajudar as outras pessoas.
+>>>>>>> d71005b283eddfa3156752adf5baab932ec57f2f
