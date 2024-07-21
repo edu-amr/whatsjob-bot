@@ -1,45 +1,48 @@
 import { WASocket } from "@whiskeysockets/baileys";
+import { SUBSCRIBE_TABLE, JOBS_TABLE } from "config/constants";
 import { CronJob } from "cron";
 import { supabaseService } from "services/supabaseService";
 import { delay } from "utils/delay";
 
-const table = process.env.ENVIRONMENT == "dev" ? "duplicate_numeros": "numeros" 
-
 async function sendBroadcastMessage(socket: WASocket) {
-  const { data: numbersData, error: numbersError } = await supabaseService.from(table).select("numero");
+  const { data: numbersData, error: numbersError } = await supabaseService
+    .from(SUBSCRIBE_TABLE)
+    .select("numero");
 
   if (numbersError) {
-    console.error('Erro ao buscar números do banco de dados:', numbersError);
+    console.error("Erro ao buscar números do banco de dados:", numbersError);
     return;
   }
 
-  const { data: jobsData, error: jobsError } = await supabaseService.from("vagas").select("titulo, link, empresa, senioridade, modalidade");
+  const { data: jobsData, error: jobsError } = await supabaseService
+    .from(JOBS_TABLE)
+    .select("titulo, link, empresa, senioridade, modalidade");
 
   if (jobsError) {
-    console.error('Erro ao buscar vagas do banco de dados:', jobsError);
+    console.error("Erro ao buscar vagas do banco de dados:", jobsError);
     return;
   }
 
   if (!jobsData || jobsData.length === 0) {
-    console.log('Nenhuma vaga disponível no momento.');
+    console.log("Nenhuma vaga disponível no momento.");
     return;
   }
 
   let message = `Seguem as vagas!`;
 
-  jobsData.forEach((job) => {
-    message += 
+  jobsData.forEach((vaga: any) => {
+    message +=
       `\r\n\r\n` +
-      `🏢 Empresa: ${job.empresa}\r\n` +
-      `🎓 Senioridade: ${job.senioridade}\r\n` +
-      `💼 Vaga: ${job.titulo}\r\n` +
-      `🚩 Modalidade: ${job.modalidade}\r\n` +
-      `🔗 Link: ${job.link}`;
+      `📍 Empresa: ${vaga.empresa}\r\n` +
+      `📍 Senioridade: ${vaga.senioridade}\r\n` +
+      `📍 Vaga: ${vaga.titulo}\r\n` +
+      `📍 Modalidade: ${vaga.modalidade}\r\n` +
+      `📍 Link: ${vaga.link}`;
   });
 
   for (const entry of numbersData) {
     const number = entry.numero;
-    try { 
+    try {
       await socket?.sendMessage(number + "@s.whatsapp.net", { text: message });
       delay(4000);
     } catch (sendError) {
@@ -48,17 +51,17 @@ async function sendBroadcastMessage(socket: WASocket) {
   }
 }
 
-const segundos = '*/10 * * * * *'
-const semana = '0 0 9 * * 1'
+const segundos = "*/10 * * * * *";
+const semana = "0 0 9 * * 1";
 
 export async function initSendJobsEveryWeek(socket: WASocket) {
   const job = new CronJob(
-    segundos,
+    semana,
     () => sendBroadcastMessage(socket),
     null,
     true,
-    'America/Los_Angeles'
+    "America/Los_Angeles"
   );
-  
+
   job.start();
 }

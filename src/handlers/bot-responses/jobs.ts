@@ -1,12 +1,15 @@
+import { JOBS_TABLE } from "config/constants";
 import { supabaseService } from "../../services/supabaseService";
 
-const table = process.env.ENVIRONMENT == "dev" ? "duplicate_vagas": "vagas" 
-
 export async function jobsResponse(phoneNumber: string, contactName: string): Promise<string[]> {
-  const { data, error } = await supabaseService.from("duplicate_vagas").select("titulo, link, empresa, senioridade, modalidade");
+  const { data, error } = await supabaseService
+    .from(JOBS_TABLE)
+    .select("titulo, link, empresa, senioridade, modalidade");
 
   if (error) {
-    return [`Desculpe, *${contactName}*. Tivemos um problema ao buscar as vagas. Por favor, tente novamente mais tarde.`];
+    return [
+      `Desculpe, *${contactName}*. Tivemos um problema ao buscar as vagas. Por favor, tente novamente mais tarde.`,
+    ];
   }
 
   if (data.length === 0) {
@@ -16,13 +19,13 @@ export async function jobsResponse(phoneNumber: string, contactName: string): Pr
   let message = `Essas são as vagas disponíveis:`;
 
   data.forEach((vaga: any) => {
-    message += 
+    message +=
       `\r\n\r\n` +
-      `🏢 Empresa: ${vaga.empresa}\r\n` +
-      `🎓 Senioridade: ${vaga.senioridade}\r\n` +
-      `💼 Vaga: ${vaga.titulo}\r\n` +
-      `🚩 Modalidade: ${vaga.modalidade}\r\n` +
-      `🔗 Link: ${vaga.link}`;
+      `📍 Empresa: ${vaga.empresa}\r\n` +
+      `📍 Senioridade: ${vaga.senioridade}\r\n` +
+      `📍 Vaga: ${vaga.titulo}\r\n` +
+      `📍 Modalidade: ${vaga.modalidade}\r\n` +
+      `📍 Link: ${vaga.link}`;
   });
 
   return [message];
