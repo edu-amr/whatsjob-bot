@@ -1,7 +1,7 @@
 import express from "express";
 import { connectToWhatsApp, whatsappSocket } from "./services/whatsappService";
-import { handleIncomingMessage } from "handlers/messageIncomingMessage";
-import { initSendJobsEveryWeek } from "jobs/send-jobs-every-week";
+import { handleIncomingMessage } from "./handlers/messageIncomingMessage";
+import { initSendJobsEveryWeek } from "./jobs/send-jobs-every-week";
 
 async function bootstrap() {
   const port = process.env.PORT || 3000;
