@@ -1,4 +1,4 @@
-import { JOBS_TABLE } from "config/constants";
+import { JOBS_TABLE } from "../../config/constants";
 import { supabaseService } from "../../services/supabaseService";
 
 export async function jobsResponse(phoneNumber: string, contactName: string): Promise<string[]> {

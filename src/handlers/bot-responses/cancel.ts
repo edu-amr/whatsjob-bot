@@ -1,4 +1,4 @@
-import { SUBSCRIBE_TABLE } from "config/constants";
+import { SUBSCRIBE_TABLE } from "../../config/constants";
 import { supabaseService } from "../../services/supabaseService";
 
 export async function unsubscribeResponse(phoneNumber: string, contactName: string) {

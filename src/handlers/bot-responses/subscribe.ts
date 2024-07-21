@@ -1,5 +1,5 @@
 import { supabaseService } from "../../services/supabaseService";
-import { SUBSCRIBE_TABLE } from "config/constants";
+import { SUBSCRIBE_TABLE } from "../../config/constants";
 
 export async function subscribeResponse(
   phoneNumber: string,
