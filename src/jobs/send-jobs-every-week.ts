@@ -1,7 +1,7 @@
 import { WASocket } from "@whiskeysockets/baileys";
 import { SUBSCRIBE_TABLE, JOBS_TABLE } from "../config/constants";
 import { CronJob } from "cron";
-import { supabaseService } from "services/supabaseService";
+import { supabaseService } from "../services/supabaseService";
 import { delay } from "utils/delay";
 
 async function sendBroadcastMessage(socket: WASocket) {
