@@ -20,12 +20,7 @@ export async function jobsResponse(phoneNumber: string, contactName: string): Pr
 
   data.forEach((vaga: any) => {
     message +=
-      `\r\n\r\n` +
-      `📍 Empresa: ${vaga.empresa}\r\n` +
-      `📍 Senioridade: ${vaga.senioridade}\r\n` +
-      `📍 Vaga: ${vaga.titulo}\r\n` +
-      `📍 Modalidade: ${vaga.modalidade}\r\n` +
-      `📍 Link: ${vaga.link}`;
+      `\r\n\r\n` + `🌎 Modalidade: ${vaga.modalidade}\r\n` + `📍 ${vaga.titulo}: ${vaga.link}`;
   });
 
   return [message];

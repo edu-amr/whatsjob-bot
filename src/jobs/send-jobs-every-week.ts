@@ -1,6 +1,6 @@
 import { WASocket } from "@whiskeysockets/baileys";
-import { SUBSCRIBE_TABLE, JOBS_TABLE } from "../config/constants";
 import { CronJob } from "cron";
+import { JOBS_TABLE, SUBSCRIBE_TABLE } from "../config/constants";
 import { supabaseService } from "../services/supabaseService";
 import { delay } from "../utils/delay";
 
@@ -32,12 +32,7 @@ async function sendBroadcastMessage(socket: WASocket) {
 
   jobsData.forEach((vaga: any) => {
     message +=
-      `\r\n\r\n` +
-      `📍 Empresa: ${vaga.empresa}\r\n` +
-      `📍 Senioridade: ${vaga.senioridade}\r\n` +
-      `📍 Vaga: ${vaga.titulo}\r\n` +
-      `📍 Modalidade: ${vaga.modalidade}\r\n` +
-      `📍 Link: ${vaga.link}`;
+      `\r\n\r\n` + `🌎 Modalidade: ${vaga.modalidade}\r\n` + `📍 ${vaga.titulo}: ${vaga.link}`;
   });
 
   for (const entry of numbersData) {

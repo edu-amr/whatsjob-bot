@@ -1,5 +1,6 @@
-import makeWASocket, { DisconnectReason, useMultiFileAuthState, WASocket, WAMessage } from '@whiskeysockets/baileys';
 import { Boom } from '@hapi/boom';
+import makeWASocket, { DisconnectReason, useMultiFileAuthState, WAMessage, WASocket } from '@whiskeysockets/baileys';
+
 let socket: WASocket | null = null;
 
 async function connectToWhatsApp(handleIncomingMessage: (socket: WASocket, message: WAMessage) => Promise<void>) {
