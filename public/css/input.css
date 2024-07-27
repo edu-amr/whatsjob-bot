@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch */
+
+* {
+  font-family: 'Epilogue';
+}
+
+.button-subscribe {
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  border-radius: 50px;
+  background-color: #CCEC60;
+  transition: all 0.3s ease-in-out 0s;
+  box-shadow: rgba(193, 244, 246, 0.698) 0px 0px 0px 0px;
+  animation: 1.2s cubic-bezier(0.8, 0, 0, 1) 0s infinite normal none running pulse;
+  align-items: center;
+  border: 0;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  line-height: 55px;
+  color: #1d3531;
+  font-weight: 700;
+  font-size: 20px;
+  align-items: center;
+  gap: 6px;
+  max-width: 260px;
+  width: 100%;
+}
+
+.button-subscribe:is(:hover, :focus) {
+  transform: scale(1.10);
+}
+
+@keyframes pulse {
+  100% {
+    box-shadow: 0 0 0 15px rgba(152, 225, 103, 0);
+  }
+}
+
+@media (max-width: 560px) {
+  .button-subscribe {
+    font-size: 18px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+}

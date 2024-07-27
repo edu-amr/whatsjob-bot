@@ -16,7 +16,7 @@ async function sendBroadcastMessage(socket: WASocket) {
 
   const { data: jobsData, error: jobsError } = await supabaseService
     .from(JOBS_TABLE)
-    .select("titulo, link, empresa, senioridade, modalidade");
+    .select("titulo, link, modalidade");
 
   if (jobsError) {
     console.error("Erro ao buscar vagas do banco de dados:", jobsError);

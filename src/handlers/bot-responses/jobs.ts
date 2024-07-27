@@ -4,7 +4,7 @@ import { supabaseService } from "../../services/supabaseService";
 export async function jobsResponse(phoneNumber: string, contactName: string): Promise<string[]> {
   const { data, error } = await supabaseService
     .from(JOBS_TABLE)
-    .select("titulo, link, empresa, senioridade, modalidade");
+    .select("titulo, link, modalidade");
 
   if (error) {
     return [

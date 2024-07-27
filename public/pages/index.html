@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WhatsJob | Vagas de TI</title>
+    <link rel="stylesheet" href="/public/css/output.css" />
+    <link rel="shortcut icon" href="/public/images/favicon.svg" type="image/x-icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="//unpkg.com/alpinejs" defer></script>
+  </head>
+  <body
+    class="bg-slate-50 min-h-screen max-w-[86rem] px-5 m-auto leading-none flex flex-col"
+    x-data="{ modalOpen: false }"
+  >
+    <div
+      x-data="{ 
+    slideOverOpen: false 
+}"
+      class="relative z-50 w-auto h-auto"
+    >
+      <button
+        @click="slideOverOpen=true"
+        class="inline-flex items-center justify-center h-10 px-4 py-2 text-sm font-medium transition-colors bg-white border rounded-md hover:bg-neutral-100 active:bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-neutral-200/60 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none"
+      >
+        Open
+      </button>
+      <template x-teleport="body">
+        <div
+          x-show="slideOverOpen"
+          @keydown.window.escape="slideOverOpen=false"
+          class="relative z-[99]"
+        >
+          <div
+            x-show="slideOverOpen"
+            x-transition.opacity.duration.600ms
+            @click="slideOverOpen = false"
+            class="fixed inset-0 bg-black bg-opacity-10"
+          ></div>
+          <div class="fixed inset-0 overflow-hidden">
+            <div class="absolute inset-0 overflow-hidden">
+              <div class="fixed inset-y-0 right-0 flex max-w-full pl-10">
+                <div
+                  x-show="slideOverOpen"
+                  @click.away="slideOverOpen = false"
+                  x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700"
+                  x-transition:enter-start="translate-x-full"
+                  x-transition:enter-end="translate-x-0"
+                  x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700"
+                  x-transition:leave-start="translate-x-0"
+                  x-transition:leave-end="translate-x-full"
+                  class="w-screen max-w-md"
+                >
+                  <div
+                    class="flex flex-col h-full py-5 overflow-y-scroll bg-white border-l shadow-lg border-neutral-100/70"
+                  >
+                    <div class="px-4 sm:px-5">
+                      <div class="flex items-start justify-between pb-1">
+                        <h2
+                          class="text-base font-semibold leading-6 text-gray-900"
+                          id="slide-over-title"
+                        >
+                          Slide Over Title
+                        </h2>
+                        <div class="flex items-center h-auto ml-3">
+                          <button
+                            @click="slideOverOpen=false"
+                            class="absolute top-0 right-0 z-30 flex items-center justify-center px-3 py-2 mt-4 mr-5 space-x-1 text-xs font-medium uppercase border rounded-md border-neutral-200 text-neutral-600 hover:bg-neutral-100"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke-width="1.5"
+                              stroke="currentColor"
+                              class="w-4 h-4"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M6 18L18 6M6 6l12 12"
+                              ></path>
+                            </svg>
+                            <span>Close</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="relative flex-1 px-4 mt-5 sm:px-5">
+                      <div class="absolute inset-0 px-4 sm:px-5">
+                        <div
+                          class="relative h-full overflow-hidden border border-dashed rounded-md border-neutral-300"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </template>
+    </div>
+
+    <header class="py-5">
+      <nav class="flex justify-between items-center">
+        <a class="flex gap-2 text-black text-xl items-center justify-center font-semibold" href="">
+          <div class="p-2 bg-[#1d3531] rounded-full border-[#CCEC6029] border">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#CCEC60"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-bot-message-square"
+            >
+              <path d="M12 6V2H8" />
+              <path d="m8 18-4 4V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2Z" />
+              <path d="M2 12h2" />
+              <path d="M9 11v2" />
+              <path d="M15 11v2" />
+              <path d="M20 12h2" />
+            </svg>
+          </div>
+          WhatsJob
+        </a>
+        <ul class="flex gap-6 text-black font-medium items-center">
+          <li
+            class="border border-black px-4 py-1 rounded-full text-base hover:bg-[#CCEC6029] transition-all duration-500"
+          >
+            <a href="https://forms.gle/DXhLy29yVjJVi6Jx8" target="_blank">Feedback</a>
+          </li>
+          <li
+            class="border border-black px-4 py-1 rounded-full text-base hover:bg-[#CCEC6029] transition-all duration-500"
+          >
+            <a href="https://forms.gle/63tZ8LR9M3JBw6A1A" target="_blank">Postar uma vaga</a>
+          </li>
+          <li
+            class="border border-black px-2 py-2 rounded-full hover:bg-[#CCEC6029] transition-all duration-500"
+          >
+            <a href="https://github.com/edu-amr/whatsjob-bot" target="_blank">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-github"
+              >
+                <path
+                  d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+                />
+                <path d="M9 18c-4.51 2-5-2-7-2" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div @keydown.escape.window="modalOpen = false" class="relative z-50 w-auto h-auto">
+      <template x-teleport="body">
+        <div
+          x-show="modalOpen"
+          class="fixed top-0 left-0 z-[99] flex items-center justify-center w-screen h-screen"
+          x-cloak
+        >
+          <div
+            x-show="modalOpen"
+            x-transition:enter="ease-out duration-300"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="ease-in duration-300"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0"
+            @click="modalOpen=false"
+            class="absolute inset-0 w-full h-full bg-black bg-opacity-40"
+          ></div>
+          <div
+            x-show="modalOpen"
+            x-trap.inert.noscroll="modalOpen"
+            x-transition:enter="ease-out duration-300"
+            x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+            x-transition:leave="ease-in duration-200"
+            x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+            x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            class="relative w-full py-6 bg-white px-7 sm:max-w-lg sm:rounded-lg"
+          >
+            <div class="flex items-center justify-between pb-2">
+              <h3 class="text-lg font-semibold">Faça uma doação via PIX</h3>
+              <button
+                @click="modalOpen=false"
+                class="absolute top-0 right-0 flex items-center justify-center w-8 h-8 mt-5 mr-5 text-gray-600 rounded-full hover:text-gray-800 hover:bg-gray-50"
+              >
+                <svg
+                  class="w-5 h-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div class="relative w-auto">
+              <p>
+                Fazendo uma doação via PIX, você ajuda a manter o nosso bot, o site, o servidor e
+                todos os serviços online.
+              </p>
+              <img src="/public/images/qrcodepix.jpeg" alt="" class="m-auto" />
+              <hr />
+              <p class="mt-10 mb-4">
+                Ou pela chave pix:
+                <span class="text-[#0f9790] font-medium">eduardo.amaro164@gmail.com</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </template>
+    </div>
+
+    <button
+      type="button"
+      class="absolute p-2 px-4 rounded-full bg-[#1d3531] right-10 bottom-7 shadow-2xl flex items-center gap-2 hover:bg-[#1d3531]/80 transition-all duration-500"
+      @click="modalOpen = true"
+    >
+      <img src="/public/images/pix.png" alt="Doar no pix" class="w-8" />
+      <span class="block w-full text-white">Faça um doação</span>
+    </button>
+
+    <main class="flex gap-10 justify-between items-center flex-1">
+      <div class="flex-1 max-w-[590px]">
+        <h1 class="md:text-6xl text-6xl text-black font-semibold text-left">
+          Encontre sua chance ainda hoje!
+        </h1>
+        <p class="text-xl mt-8">
+          Este bot open source ajuda desenvolvedores a encontrar vagas de TI, cursos relevantes,
+          ideias de projetos e mais, facilitando o acesso a oportunidades e recursos de aprendizado.
+        </p>
+        <div class="mt-8 flex items-center gap-24 w-full">
+          <a
+            class="button-subscribe"
+            href="https://api.whatsapp.com/send/?phone=554797898819&text=Ol%C3%A1%2C+gostaria+de+me+cadastrar+na+lista+para+receber+as+vagas%21&type=phone_number&app_absent=0"
+            target="_blank"
+          >
+            Inscreva-se
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-move-up-right"
+            >
+              <path d="M13 5H19V11" />
+              <path d="M19 5L5 19" />
+            </svg>
+          </a>
+          <div class="w-[4px] bg-slate-800 h-[130px]"></div>
+          <img src="/public/images/qrcode.png" alt="" width="140" />
+        </div>
+      </div>
+      <div class="">
+        <img
+          src="/public/images/phone.png"
+          alt="Celular mostrando uma conversa no WhatsApp"
+          width="480"
+        />
+      </div>
+    </main>
+  </body>
+</html>

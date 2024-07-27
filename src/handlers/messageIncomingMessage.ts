@@ -11,6 +11,7 @@ import { projectsResponse } from "./bot-responses/projects";
 import { unsubscribeResponse } from "./bot-responses/cancel";
 import { handleDefaultResponse } from "./bot-responses/default";
 import { delay } from "../utils/delay";
+import { postJobResponse } from "./bot-responses/post-job";
 
 export enum MessageEnum {
   SUBSCRIBE = "Olá, gostaria de me cadastrar na lista para receber as vagas!",
@@ -22,6 +23,7 @@ export enum MessageEnum {
   FEEDBACK = "feedback",
   DONATION = "doacao",
   CHANNELS = "canais",
+  POST_JOB = "postar",
   MENU = "menu",
 }
 
@@ -39,6 +41,7 @@ const dispatchMap: Record<
   [MessageEnum.PROJECTS]: projectsResponse,
   [MessageEnum.DONATION]: donationResponse,
   [MessageEnum.CHANNELS]: channelsResponse,
+  [MessageEnum.POST_JOB]: postJobResponse,
 };
 
 export async function handleIncomingMessage(socket: WASocket, message: WAMessage) {
