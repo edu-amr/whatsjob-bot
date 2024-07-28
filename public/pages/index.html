@@ -1,12 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WhatsJob | Vagas de TI</title>
-    <link rel="stylesheet" href="/public/css/output.css" />
-    <link rel="shortcut icon" href="/public/images/favicon.svg" type="image/x-icon" />
 
+    <meta name="description" content="WhatsJob é um bot open source que ajuda desenvolvedores a encontrar vagas de TI, cursos relevantes, ideias de projetos e muito mais." />
+    <meta name="keywords" content="WhatsJob, Vagas de TI, Desenvolvedores, Cursos de TI, Projetos de TI, Oportunidades de Trabalho" />
+    <meta name="author" content="Eduardo Amaro" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://seusite.com/" />
+    <meta property="og:title" content="WhatsJob | Vagas de TI" />
+    <meta property="og:description" content="WhatsJob é um bot open source que ajuda desenvolvedores a encontrar vagas de TI, cursos relevantes, ideias de projetos e muito mais." />
+    <meta property="og:image" content="https://seusite.com/public/images/og-image.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://seusite.com/" />
+    <meta property="twitter:title" content="WhatsJob | Vagas de TI" />
+    <meta property="twitter:description" content="WhatsJob é um bot open source que ajuda desenvolvedores a encontrar vagas de TI, cursos relevantes, ideias de projetos e muito mais." />
+    <meta property="twitter:image" content="https://seusite.com/public/images/twitter-image.jpg" />
+
+    <link rel="stylesheet" href="/css/output.css" />
+    <link rel="shortcut icon" href="/images/favicon.svg" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -47,7 +65,7 @@
         </a>
         <div
           x-data="{ 
-          slideOverOpen: true 
+          slideOverOpen: false 
         }"
           class="md:hidden relative z-50 w-auto h-auto block"
         >
@@ -296,7 +314,7 @@
                 Fazendo uma doação via PIX, você ajuda a manter o nosso bot, o site, o servidor e
                 todos os serviços online.
               </p>
-              <img src="/public/images/qrcodepix.jpeg" alt="" class="m-auto" />
+              <img src="/images/qrcodepix.jpeg" alt="" class="m-auto" />
               <hr />
               <p class="mt-10 mb-4">
                 Ou pela chave pix:
@@ -313,7 +331,7 @@
       class="fixed p-2 px-4 rounded-full bg-[#1d3531] right-10 bottom-7 shadow-2xl flex items-center gap-2 hover:bg-[#1d3531]/80 transition-all duration-500"
       @click="modalOpen = true"
     >
-      <img src="/public/images/pix.png" alt="Doar no pix" class="w-8" />
+      <img src="/images/pix.png" alt="Doar no pix" class="w-8" />
       <span class="block w-full text-white">Faça um doação</span>
     </button>
 
@@ -353,7 +371,7 @@
           </a>
           <div class="xl:block w-[4px] bg-slate-800 h-[130px] hidden"></div>
           <img
-            src="/public/images/qrcode.png"
+            src="/images/qrcode.png"
             alt="Qr code para o bot"
             width="140"
             class="lg:block hidden"
@@ -362,7 +380,7 @@
       </div>
       <div class="">
         <img
-          src="/public/images/phone.png"
+          src="/images/phone.png"
           alt="Celular mostrando uma conversa no WhatsApp"
           class="xl:w-[480px] md:w-[400px] w-[280px]"
         />

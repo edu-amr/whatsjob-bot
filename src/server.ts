@@ -12,8 +12,8 @@ async function bootstrap() {
     .use(router)
     .use(express.static(path.resolve(__dirname, "..", "public")))
 
-  // await connectToWhatsApp(handleIncomingMessage);
-  // await initSendJobsEveryWeek(whatsappSocket());
+  await connectToWhatsApp(handleIncomingMessage);
+  await initSendJobsEveryWeek(whatsappSocket());
 
   server.listen(port, () => console.log(`Server running on port ${port}`));
 }
