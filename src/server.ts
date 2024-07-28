@@ -2,15 +2,15 @@ import path from 'path';
 import express from 'express';
 import { router } from './routes';
 import { port } from './config/constants';
-import { initSendJobsEveryWeek } from './jobs/send-jobs-every-week';
-import { handleIncomingMessage } from './handlers/messageIncomingMessage';
-import { connectToWhatsApp, whatsappSocket } from './services/whatsappService';
+// import { initSendJobsEveryWeek } from './jobs/send-jobs-every-week';
+// import { handleIncomingMessage } from './handlers/messageIncomingMessage';
+// import { connectToWhatsApp, whatsappSocket } from './services/whatsappService';
 
 async function bootstrap() {
   const server = express()
     .use(express.json())
     .use(router)
-    .use(express.static(path.resolve(__dirname, "..", "public")));
+    .use(express.static(path.resolve(__dirname, "..", "public"))); // Ajustado para servir arquivos estáticos de dist/public
 
   // await connectToWhatsApp(handleIncomingMessage);
   // await initSendJobsEveryWeek(whatsappSocket());
