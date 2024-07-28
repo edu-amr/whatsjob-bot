@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { RenderPages } from "controllers/RenderPages";
+import { RenderPages } from "./controllers/RenderPages";
 
 const renderPages = new RenderPages()
 
