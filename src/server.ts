@@ -1,7 +1,7 @@
 import path from "path";
 import express, { Request, Response, NextFunction, ErrorRequestHandler } from "express";
-import { router } from "routes";
-import { port } from "config/constants";
+import { router } from "./routes";
+import { port } from "./config/constants";
 import { initSendJobsEveryWeek } from "./jobs/send-jobs-every-week";
 import { handleIncomingMessage } from "./handlers/messageIncomingMessage";
 import { connectToWhatsApp, whatsappSocket } from "./services/whatsappService";
