@@ -10,7 +10,7 @@ async function bootstrap() {
   const server = express()
     .use(express.json())
     .use(router)
-    .use(express.static(path.resolve(__dirname, "..", "public")))
+    //.use(express.static(path.resolve(__dirname, "..", "public")))
 
   await connectToWhatsApp(handleIncomingMessage);
   await initSendJobsEveryWeek(whatsappSocket());
