@@ -4,6 +4,11 @@
 
 /* npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch */
 
+::selection {
+  background-color: #1d3531;
+  color: white;
+}
+
 * {
   font-family: 'Epilogue';
 }
