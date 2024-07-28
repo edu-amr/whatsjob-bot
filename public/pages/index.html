@@ -19,95 +19,6 @@
     class="bg-slate-50 min-h-screen max-w-[86rem] px-5 m-auto leading-none flex flex-col"
     x-data="{ modalOpen: false }"
   >
-    <div
-      x-data="{ 
-    slideOverOpen: false 
-}"
-      class="relative z-50 w-auto h-auto"
-    >
-      <button
-        @click="slideOverOpen=true"
-        class="inline-flex items-center justify-center h-10 px-4 py-2 text-sm font-medium transition-colors bg-white border rounded-md hover:bg-neutral-100 active:bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-neutral-200/60 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none"
-      >
-        Open
-      </button>
-      <template x-teleport="body">
-        <div
-          x-show="slideOverOpen"
-          @keydown.window.escape="slideOverOpen=false"
-          class="relative z-[99]"
-        >
-          <div
-            x-show="slideOverOpen"
-            x-transition.opacity.duration.600ms
-            @click="slideOverOpen = false"
-            class="fixed inset-0 bg-black bg-opacity-10"
-          ></div>
-          <div class="fixed inset-0 overflow-hidden">
-            <div class="absolute inset-0 overflow-hidden">
-              <div class="fixed inset-y-0 right-0 flex max-w-full pl-10">
-                <div
-                  x-show="slideOverOpen"
-                  @click.away="slideOverOpen = false"
-                  x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700"
-                  x-transition:enter-start="translate-x-full"
-                  x-transition:enter-end="translate-x-0"
-                  x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700"
-                  x-transition:leave-start="translate-x-0"
-                  x-transition:leave-end="translate-x-full"
-                  class="w-screen max-w-md"
-                >
-                  <div
-                    class="flex flex-col h-full py-5 overflow-y-scroll bg-white border-l shadow-lg border-neutral-100/70"
-                  >
-                    <div class="px-4 sm:px-5">
-                      <div class="flex items-start justify-between pb-1">
-                        <h2
-                          class="text-base font-semibold leading-6 text-gray-900"
-                          id="slide-over-title"
-                        >
-                          Slide Over Title
-                        </h2>
-                        <div class="flex items-center h-auto ml-3">
-                          <button
-                            @click="slideOverOpen=false"
-                            class="absolute top-0 right-0 z-30 flex items-center justify-center px-3 py-2 mt-4 mr-5 space-x-1 text-xs font-medium uppercase border rounded-md border-neutral-200 text-neutral-600 hover:bg-neutral-100"
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke-width="1.5"
-                              stroke="currentColor"
-                              class="w-4 h-4"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M6 18L18 6M6 6l12 12"
-                              ></path>
-                            </svg>
-                            <span>Close</span>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="relative flex-1 px-4 mt-5 sm:px-5">
-                      <div class="absolute inset-0 px-4 sm:px-5">
-                        <div
-                          class="relative h-full overflow-hidden border border-dashed rounded-md border-neutral-300"
-                        ></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </template>
-    </div>
-
     <header class="py-5">
       <nav class="flex justify-between items-center">
         <a class="flex gap-2 text-black text-xl items-center justify-center font-semibold" href="">
@@ -134,7 +45,165 @@
           </div>
           WhatsJob
         </a>
-        <ul class="flex gap-6 text-black font-medium items-center">
+        <div
+          x-data="{ 
+          slideOverOpen: true 
+        }"
+          class="md:hidden relative z-50 w-auto h-auto block"
+        >
+          <button
+            @click="slideOverOpen=true"
+            class="inline-flex items-center justify-center h-10 px-4 py-2 text-sm font-medium transition-colors bg-white border rounded-md hover:bg-neutral-100 active:bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-neutral-200/60 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-menu"
+            >
+              <line x1="4" x2="20" y1="12" y2="12" />
+              <line x1="4" x2="20" y1="6" y2="6" />
+              <line x1="4" x2="20" y1="18" y2="18" />
+            </svg>
+          </button>
+          <template x-teleport="body">
+            <div
+              x-show="slideOverOpen"
+              @keydown.window.escape="slideOverOpen=false"
+              class="relative z-[99]"
+            >
+              <div
+                x-show="slideOverOpen"
+                x-transition.opacity.duration.600ms
+                @click="slideOverOpen = false"
+                class="fixed inset-0 bg-black bg-opacity-10"
+              ></div>
+              <div class="fixed inset-0 overflow-hidden">
+                <div class="absolute inset-0 overflow-hidden">
+                  <div class="fixed inset-y-0 right-0 flex max-w-full pl-10">
+                    <div
+                      x-show="slideOverOpen"
+                      @click.away="slideOverOpen = false"
+                      x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700"
+                      x-transition:enter-start="translate-x-full"
+                      x-transition:enter-end="translate-x-0"
+                      x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700"
+                      x-transition:leave-start="translate-x-0"
+                      x-transition:leave-end="translate-x-full"
+                      class="w-screen max-w-md"
+                    >
+                      <div
+                        class="flex flex-col h-full py-5 overflow-y-scroll bg-white border-l shadow-lg border-neutral-100/70"
+                      >
+                        <div class="px-4 sm:px-5">
+                          <div class="flex items-start justify-between pb-1">
+                            <h2
+                              class="text-base font-semibold leading-6 text-gray-900"
+                              id="slide-over-title"
+                            >
+                              Menu
+                            </h2>
+                            <div class="flex items-center h-auto ml-3">
+                              <button
+                                @click="slideOverOpen=false"
+                                class="absolute top-0 right-0 z-30 flex items-center justify-center px-3 py-2 mt-4 mr-5 space-x-1 text-xs font-medium uppercase border rounded-md border-neutral-200 text-neutral-600 hover:bg-neutral-100"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke-width="1.5"
+                                  stroke="currentColor"
+                                  class="w-4 h-4"
+                                >
+                                  <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18L18 6M6 6l12 12"
+                                  ></path>
+                                </svg>
+                                <span>Fechar</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="relative flex-1 px-4 mt-5 sm:px-5">
+                          <div class="absolute inset-0 px-4 sm:px-5">
+                            <div
+                              class="relative h-full overflow-hidden border border-dashed rounded-md border-neutral-300 p-5 flex flex-col gap-6"
+                            >
+                              <a href="https://forms.gle/63tZ8LR9M3JBw6A1A" target="_blank" class="underline flex gap-2 items-center"
+                                >Fazer uma doação
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="14"
+                                  height="14"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  class="lucide lucide-move-up-right"
+                                >
+                                  <path d="M13 5H19V11" />
+                                  <path d="M19 5L5 19" />
+                                </svg>
+                              </a>
+                              <a href="https://forms.gle/DXhLy29yVjJVi6Jx8" target="_blank" class="underline flex gap-2 items-center"
+                                >Feedback
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="14"
+                                  height="14"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  class="lucide lucide-move-up-right"
+                                >
+                                  <path d="M13 5H19V11" />
+                                  <path d="M19 5L5 19" />
+                                </svg>
+                              </a>
+                              <a href="https://github.com/edu-amr/whatsjob-bot" target="_blank" class="underline flex gap-2 items-center"
+                                >GitHub
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="14"
+                                  height="14"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  class="lucide lucide-move-up-right"
+                                >
+                                  <path d="M13 5H19V11" />
+                                  <path d="M19 5L5 19" />
+                                </svg>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+        <ul class="md:flex hidden gap-6 text-black font-medium items-center">
           <li
             class="border border-black px-4 py-1 rounded-full text-base hover:bg-[#CCEC6029] transition-all duration-500"
           >
@@ -176,7 +245,7 @@
       <template x-teleport="body">
         <div
           x-show="modalOpen"
-          class="fixed top-0 left-0 z-[99] flex items-center justify-center w-screen h-screen"
+          class="fixed top-0 left-0 z-[99] flex items-center justify-center w-screen h-screen p-5 pr-10"
           x-cloak
         >
           <div
@@ -238,23 +307,25 @@
 
     <button
       type="button"
-      class="absolute p-2 px-4 rounded-full bg-[#1d3531] right-10 bottom-7 shadow-2xl flex items-center gap-2 hover:bg-[#1d3531]/80 transition-all duration-500"
+      class="fixed p-2 px-4 rounded-full bg-[#1d3531] right-10 bottom-7 shadow-2xl flex items-center gap-2 hover:bg-[#1d3531]/80 transition-all duration-500"
       @click="modalOpen = true"
     >
       <img src="/public/images/pix.png" alt="Doar no pix" class="w-8" />
       <span class="block w-full text-white">Faça um doação</span>
     </button>
 
-    <main class="flex gap-10 justify-between items-center flex-1">
-      <div class="flex-1 max-w-[590px]">
-        <h1 class="md:text-6xl text-6xl text-black font-semibold text-left">
+    <main
+      class="lg:flex-row lg:mt-0 mt-20 flex-col flex gap-10 justify-between items-center flex-1"
+    >
+      <div class="xl:max-w-[590px] lg:max-w-[550px] max-w-full flex-1">
+        <h1 class="xl:text-6xl lg:text-left text-center text-4xl text-black font-semibold">
           Encontre sua chance ainda hoje!
         </h1>
-        <p class="text-xl mt-8">
+        <p class="xl:text-xl lg:text-left text-center text-base mt-8">
           Este bot open source ajuda desenvolvedores a encontrar vagas de TI, cursos relevantes,
           ideias de projetos e mais, facilitando o acesso a oportunidades e recursos de aprendizado.
         </p>
-        <div class="mt-8 flex items-center gap-24 w-full">
+        <div class="lg:justify-normal mt-8 flex items-center justify-center gap-24 w-full">
           <a
             class="button-subscribe"
             href="https://api.whatsapp.com/send/?phone=554797898819&text=Ol%C3%A1%2C+gostaria+de+me+cadastrar+na+lista+para+receber+as+vagas%21&type=phone_number&app_absent=0"
@@ -277,15 +348,20 @@
               <path d="M19 5L5 19" />
             </svg>
           </a>
-          <div class="w-[4px] bg-slate-800 h-[130px]"></div>
-          <img src="/public/images/qrcode.png" alt="" width="140" />
+          <div class="xl:block w-[4px] bg-slate-800 h-[130px] hidden"></div>
+          <img
+            src="/public/images/qrcode.png"
+            alt="Qr code para o bot"
+            width="140"
+            class="lg:block hidden"
+          />
         </div>
       </div>
       <div class="">
         <img
           src="/public/images/phone.png"
           alt="Celular mostrando uma conversa no WhatsApp"
-          width="480"
+          class="xl:w-[480px] md:w-[400px] w-[280px]"
         />
       </div>
     </main>
