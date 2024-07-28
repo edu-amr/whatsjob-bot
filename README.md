@@ -12,7 +12,7 @@
 
 </div>
 
-<h3 align="center">Plataforma Open-Source para encontrar vagas de emprego na área de TI.</br> Visite o site <a href="https://whatsjob-site.vercel.app/">clicando aqui!</a></h3>
+<h3 align="center">Plataforma Open-Source para encontrar vagas de emprego na área de TI.</br> Visite o site <a href="https://whatsjob-bot-4e0f07c05ce9.herokuapp.com">clicando aqui!</a></h3>
 
 <p style="text-align: center">WhatsJob é uma aplicação que ajuda você a encontrar vagas de emprego focadas em TI de forma rápida e eficiente. Com uma interface amigável, você pode buscar e se candidatar a oportunidades diretamente pelo site. Além disso, oferecemos um link direto para um bot no WhatsApp que facilita ainda mais o processo de busca de emprego. Você também pode se cadastrar na lista de membros para receber vagas semanalmente no seu WhatsApp.</p>
 
